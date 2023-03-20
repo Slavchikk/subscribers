@@ -1,0 +1,1211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище CRM10Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="active_module">
+          <Key>
+            <PropertyRef Name="id_active_module" />
+          </Key>
+          <Property Name="id_active_module" Type="int" Nullable="false" />
+          <Property Name="id_module" Type="int" Nullable="false" />
+          <Property Name="id_role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="address_subscriber">
+          <Key>
+            <PropertyRef Name="number_subscriber" />
+          </Key>
+          <Property Name="number_subscriber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="prefix_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_raion" Type="int" />
+          <Property Name="id_city" Type="int" />
+          <Property Name="id_street" Type="int" />
+          <Property Name="house" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="id_city" />
+          </Key>
+          <Property Name="id_city" Type="int" Nullable="false" />
+          <Property Name="name_city" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Division_code">
+          <Key>
+            <PropertyRef Name="id_division_code" />
+          </Key>
+          <Property Name="id_division_code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="division_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FMS">
+          <Key>
+            <PropertyRef Name="id_issued" />
+          </Key>
+          <Property Name="id_issued" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FMS" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="ID_GENDER" />
+          </Key>
+          <Property Name="ID_GENDER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GENDER" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moduls">
+          <Key>
+            <PropertyRef Name="id_module" />
+          </Key>
+          <Property Name="id_module" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_module" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Raoins">
+          <Key>
+            <PropertyRef Name="id_raion" />
+          </Key>
+          <Property Name="id_raion" Type="int" Nullable="false" />
+          <Property Name="raion_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="square" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="population" Type="int" Nullable="false" />
+          <Property Name="count_metro" Type="int" Nullable="false" />
+          <Property Name="id_type_binding" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reason_terminate">
+          <Key>
+            <PropertyRef Name="id_reason_terminate" />
+          </Key>
+          <Property Name="id_reason_terminate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reason_terminate" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="ID_ROLES" />
+          </Key>
+          <Property Name="ID_ROLES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROLE" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Serial_number">
+          <Key>
+            <PropertyRef Name="id_serial_number" />
+          </Key>
+          <Property Name="id_serial_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serial_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_serial_number" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="id_service" />
+          </Key>
+          <Property Name="id_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="service" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Streets">
+          <Key>
+            <PropertyRef Name="id_street" />
+          </Key>
+          <Property Name="id_street" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="id_subscriber" />
+          </Key>
+          <Property Name="id_subscriber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number_subscriber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="patromic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_gender" Type="int" Nullable="false" />
+          <Property Name="date_birthday" Type="date" Nullable="false" />
+          <Property Name="number_phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address_registration" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="number_subcriber" Type="nvarchar" MaxLength="50" />
+          <Property Name="passport_seria" Type="nvarchar" MaxLength="50" />
+          <Property Name="passport_number" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_division_code" Type="int" Nullable="false" />
+          <Property Name="id_issued" Type="int" Nullable="false" />
+          <Property Name="date_issued" Type="date" Nullable="false" />
+          <Property Name="number_contract" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_conclusion" Type="date" Nullable="false" />
+          <Property Name="id_type_contract" Type="int" Nullable="false" />
+          <Property Name="id_reason_terminate" Type="int" />
+          <Property Name="personal_account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_terminate" Type="date" />
+          <Property Name="date_rent" Type="date" />
+          <Property Name="id_serial_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscriber_service">
+          <Key>
+            <PropertyRef Name="id_subscriber_service" />
+          </Key>
+          <Property Name="id_subscriber_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_service" Type="int" Nullable="false" />
+          <Property Name="id_subcriber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="type_binding">
+          <Key>
+            <PropertyRef Name="id_type_binding" />
+          </Key>
+          <Property Name="id_type_binding" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_binding" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Type_contract">
+          <Key>
+            <PropertyRef Name="id_contract" />
+          </Key>
+          <Property Name="id_contract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_contract" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID_USER" />
+          </Key>
+          <Property Name="ID_USER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="SURNAME" Type="varchar" MaxLength="50" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="50" />
+          <Property Name="ID_ROLE" Type="int" Nullable="false" />
+          <Property Name="number" Type="nvarchar" MaxLength="50" />
+          <Property Name="CODE" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="int" />
+          <Property Name="ID_GENDER" Type="int" />
+          <Property Name="images" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_active_module_Moduls">
+          <End Role="Moduls" Type="Self.Moduls" Multiplicity="1" />
+          <End Role="active_module" Type="Self.active_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moduls">
+              <PropertyRef Name="id_module" />
+            </Principal>
+            <Dependent Role="active_module">
+              <PropertyRef Name="id_module" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_active_module_ROLES">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+          <End Role="active_module" Type="Self.active_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID_ROLES" />
+            </Principal>
+            <Dependent Role="active_module">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_address_subscriber_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="address_subscriber" Type="Self.address_subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="id_city" />
+            </Principal>
+            <Dependent Role="address_subscriber">
+              <PropertyRef Name="id_city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_address_subscriber_Raoins">
+          <End Role="Raoins" Type="Self.Raoins" Multiplicity="0..1" />
+          <End Role="address_subscriber" Type="Self.address_subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Raoins">
+              <PropertyRef Name="id_raion" />
+            </Principal>
+            <Dependent Role="address_subscriber">
+              <PropertyRef Name="id_raion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_address_subscriber_Streets">
+          <End Role="Streets" Type="Self.Streets" Multiplicity="0..1" />
+          <End Role="address_subscriber" Type="Self.address_subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Streets">
+              <PropertyRef Name="id_street" />
+            </Principal>
+            <Dependent Role="address_subscriber">
+              <PropertyRef Name="id_street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raoins_type_binding">
+          <End Role="type_binding" Type="Self.type_binding" Multiplicity="1" />
+          <End Role="Raoins" Type="Self.Raoins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_binding">
+              <PropertyRef Name="id_type_binding" />
+            </Principal>
+            <Dependent Role="Raoins">
+              <PropertyRef Name="id_type_binding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_address_subscriber">
+          <End Role="address_subscriber" Type="Self.address_subscriber" Multiplicity="0..1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address_subscriber">
+              <PropertyRef Name="number_subscriber" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="number_subcriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Division_code">
+          <End Role="Division_code" Type="Self.Division_code" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division_code">
+              <PropertyRef Name="id_division_code" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_division_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_FMS">
+          <End Role="FMS" Type="Self.FMS" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FMS">
+              <PropertyRef Name="id_issued" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_issued" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_GENDER" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Reason_terminate">
+          <End Role="Reason_terminate" Type="Self.Reason_terminate" Multiplicity="0..1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason_terminate">
+              <PropertyRef Name="id_reason_terminate" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_reason_terminate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Serial_number">
+          <End Role="Serial_number" Type="Self.Serial_number" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serial_number">
+              <PropertyRef Name="id_serial_number" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_serial_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_service_Services">
+          <End Role="Services" Type="Self.Services" Multiplicity="1" />
+          <End Role="Subscriber_service" Type="Self.Subscriber_service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="Subscriber_service">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_service_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Subscriber_service" Type="Self.Subscriber_service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="id_subscriber" />
+            </Principal>
+            <Dependent Role="Subscriber_service">
+              <PropertyRef Name="id_subcriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Type_contract">
+          <End Role="Type_contract" Type="Self.Type_contract" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_contract">
+              <PropertyRef Name="id_contract" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_type_contract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_GENDER" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="ID_GENDER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_ROLES">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+          <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID_ROLES" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="ID_ROLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CRM10ModelContainer">
+          <EntitySet Name="active_module" EntityType="Self.active_module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="address_subscriber" EntityType="Self.address_subscriber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Division_code" EntityType="Self.Division_code" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FMS" EntityType="Self.FMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moduls" EntityType="Self.Moduls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Raoins" EntityType="Self.Raoins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reason_terminate" EntityType="Self.Reason_terminate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Serial_number" EntityType="Self.Serial_number" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Streets" EntityType="Self.Streets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscriber" EntityType="Self.Subscriber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscriber_service" EntityType="Self.Subscriber_service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="type_binding" EntityType="Self.type_binding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_contract" EntityType="Self.Type_contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_active_module_Moduls" Association="Self.FK_active_module_Moduls">
+            <End Role="Moduls" EntitySet="Moduls" />
+            <End Role="active_module" EntitySet="active_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_active_module_ROLES" Association="Self.FK_active_module_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="active_module" EntitySet="active_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_address_subscriber_Cities" Association="Self.FK_address_subscriber_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_address_subscriber_Raoins" Association="Self.FK_address_subscriber_Raoins">
+            <End Role="Raoins" EntitySet="Raoins" />
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_address_subscriber_Streets" Association="Self.FK_address_subscriber_Streets">
+            <End Role="Streets" EntitySet="Streets" />
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raoins_type_binding" Association="Self.FK_Raoins_type_binding">
+            <End Role="type_binding" EntitySet="type_binding" />
+            <End Role="Raoins" EntitySet="Raoins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_address_subscriber" Association="Self.FK_Subscriber_address_subscriber">
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Division_code" Association="Self.FK_Subscriber_Division_code">
+            <End Role="Division_code" EntitySet="Division_code" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_FMS" Association="Self.FK_Subscriber_FMS">
+            <End Role="FMS" EntitySet="FMS" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Gender" Association="Self.FK_Subscriber_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Reason_terminate" Association="Self.FK_Subscriber_Reason_terminate">
+            <End Role="Reason_terminate" EntitySet="Reason_terminate" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Serial_number" Association="Self.FK_Subscriber_Serial_number">
+            <End Role="Serial_number" EntitySet="Serial_number" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_service_Services" Association="Self.FK_Subscriber_service_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Subscriber_service" EntitySet="Subscriber_service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_service_Subscriber" Association="Self.FK_Subscriber_service_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Subscriber_service" EntitySet="Subscriber_service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Type_contract" Association="Self.FK_Subscriber_Type_contract">
+            <End Role="Type_contract" EntitySet="Type_contract" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_Gender" Association="Self.FK_USERS_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_ROLES" Association="Self.FK_USERS_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CRM10Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="active_module" EntityType="CRM10Model.active_module" />
+          <EntitySet Name="address_subscriber" EntityType="CRM10Model.address_subscriber" />
+          <EntitySet Name="Cities" EntityType="CRM10Model.Cities" />
+          <EntitySet Name="Division_code" EntityType="CRM10Model.Division_code" />
+          <EntitySet Name="FMS" EntityType="CRM10Model.FMS" />
+          <EntitySet Name="Gender" EntityType="CRM10Model.Gender" />
+          <EntitySet Name="Moduls" EntityType="CRM10Model.Moduls" />
+          <EntitySet Name="Raoins" EntityType="CRM10Model.Raoins" />
+          <EntitySet Name="Reason_terminate" EntityType="CRM10Model.Reason_terminate" />
+          <EntitySet Name="ROLES" EntityType="CRM10Model.ROLES" />
+          <EntitySet Name="Serial_number" EntityType="CRM10Model.Serial_number" />
+          <EntitySet Name="Services" EntityType="CRM10Model.Services" />
+          <EntitySet Name="Streets" EntityType="CRM10Model.Streets" />
+          <EntitySet Name="Subscriber" EntityType="CRM10Model.Subscriber" />
+          <EntitySet Name="Subscriber_service" EntityType="CRM10Model.Subscriber_service" />
+          <EntitySet Name="sysdiagrams" EntityType="CRM10Model.sysdiagrams" />
+          <EntitySet Name="type_binding" EntityType="CRM10Model.type_binding" />
+          <EntitySet Name="Type_contract" EntityType="CRM10Model.Type_contract" />
+          <EntitySet Name="USERS" EntityType="CRM10Model.USERS" />
+          <AssociationSet Name="FK_active_module_Moduls" Association="CRM10Model.FK_active_module_Moduls">
+            <End Role="Moduls" EntitySet="Moduls" />
+            <End Role="active_module" EntitySet="active_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_active_module_ROLES" Association="CRM10Model.FK_active_module_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="active_module" EntitySet="active_module" />
+          </AssociationSet>
+          <AssociationSet Name="FK_address_subscriber_Cities" Association="CRM10Model.FK_address_subscriber_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_address_subscriber_Raoins" Association="CRM10Model.FK_address_subscriber_Raoins">
+            <End Role="Raoins" EntitySet="Raoins" />
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_address_subscriber_Streets" Association="CRM10Model.FK_address_subscriber_Streets">
+            <End Role="Streets" EntitySet="Streets" />
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_address_subscriber" Association="CRM10Model.FK_Subscriber_address_subscriber">
+            <End Role="address_subscriber" EntitySet="address_subscriber" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Division_code" Association="CRM10Model.FK_Subscriber_Division_code">
+            <End Role="Division_code" EntitySet="Division_code" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_FMS" Association="CRM10Model.FK_Subscriber_FMS">
+            <End Role="FMS" EntitySet="FMS" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Gender" Association="CRM10Model.FK_Subscriber_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_Gender" Association="CRM10Model.FK_USERS_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raoins_type_binding" Association="CRM10Model.FK_Raoins_type_binding">
+            <End Role="type_binding" EntitySet="type_binding" />
+            <End Role="Raoins" EntitySet="Raoins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Reason_terminate" Association="CRM10Model.FK_Subscriber_Reason_terminate">
+            <End Role="Reason_terminate" EntitySet="Reason_terminate" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_ROLES" Association="CRM10Model.FK_USERS_ROLES">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USERS" EntitySet="USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Serial_number" Association="CRM10Model.FK_Subscriber_Serial_number">
+            <End Role="Serial_number" EntitySet="Serial_number" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_service_Services" Association="CRM10Model.FK_Subscriber_service_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Subscriber_service" EntitySet="Subscriber_service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_service_Subscriber" Association="CRM10Model.FK_Subscriber_service_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Subscriber_service" EntitySet="Subscriber_service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Type_contract" Association="CRM10Model.FK_Subscriber_Type_contract">
+            <End Role="Type_contract" EntitySet="Type_contract" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="active_module">
+          <Key>
+            <PropertyRef Name="id_active_module" />
+          </Key>
+          <Property Name="id_active_module" Type="Int32" Nullable="false" />
+          <Property Name="id_module" Type="Int32" Nullable="false" />
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Moduls" Relationship="CRM10Model.FK_active_module_Moduls" FromRole="active_module" ToRole="Moduls" />
+          <NavigationProperty Name="ROLES" Relationship="CRM10Model.FK_active_module_ROLES" FromRole="active_module" ToRole="ROLES" />
+        </EntityType>
+        <EntityType Name="address_subscriber">
+          <Key>
+            <PropertyRef Name="number_subscriber" />
+          </Key>
+          <Property Name="number_subscriber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prefix_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_raion" Type="Int32" />
+          <Property Name="id_city" Type="Int32" />
+          <Property Name="id_street" Type="Int32" />
+          <Property Name="house" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cities" Relationship="CRM10Model.FK_address_subscriber_Cities" FromRole="address_subscriber" ToRole="Cities" />
+          <NavigationProperty Name="Raoins" Relationship="CRM10Model.FK_address_subscriber_Raoins" FromRole="address_subscriber" ToRole="Raoins" />
+          <NavigationProperty Name="Streets" Relationship="CRM10Model.FK_address_subscriber_Streets" FromRole="address_subscriber" ToRole="Streets" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_address_subscriber" FromRole="address_subscriber" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="id_city" />
+          </Key>
+          <Property Name="id_city" Type="Int32" Nullable="false" />
+          <Property Name="name_city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="address_subscriber" Relationship="CRM10Model.FK_address_subscriber_Cities" FromRole="Cities" ToRole="address_subscriber" />
+        </EntityType>
+        <EntityType Name="Division_code">
+          <Key>
+            <PropertyRef Name="id_division_code" />
+          </Key>
+          <Property Name="id_division_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="division_code1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_Division_code" FromRole="Division_code" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="FMS">
+          <Key>
+            <PropertyRef Name="id_issued" />
+          </Key>
+          <Property Name="id_issued" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FMS1" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_FMS" FromRole="FMS" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="ID_GENDER" />
+          </Key>
+          <Property Name="ID_GENDER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GENDER1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_Gender" FromRole="Gender" ToRole="Subscriber" />
+          <NavigationProperty Name="USERS" Relationship="CRM10Model.FK_USERS_Gender" FromRole="Gender" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="Moduls">
+          <Key>
+            <PropertyRef Name="id_module" />
+          </Key>
+          <Property Name="id_module" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_module" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="active_module" Relationship="CRM10Model.FK_active_module_Moduls" FromRole="Moduls" ToRole="active_module" />
+        </EntityType>
+        <EntityType Name="Raoins">
+          <Key>
+            <PropertyRef Name="id_raion" />
+          </Key>
+          <Property Name="id_raion" Type="Int32" Nullable="false" />
+          <Property Name="raion_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="square" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="population" Type="Int32" Nullable="false" />
+          <Property Name="count_metro" Type="Int32" Nullable="false" />
+          <Property Name="id_type_binding" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="address_subscriber" Relationship="CRM10Model.FK_address_subscriber_Raoins" FromRole="Raoins" ToRole="address_subscriber" />
+          <NavigationProperty Name="type_binding" Relationship="CRM10Model.FK_Raoins_type_binding" FromRole="Raoins" ToRole="type_binding" />
+        </EntityType>
+        <EntityType Name="Reason_terminate">
+          <Key>
+            <PropertyRef Name="id_reason_terminate" />
+          </Key>
+          <Property Name="id_reason_terminate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reason_terminate1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_Reason_terminate" FromRole="Reason_terminate" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="ID_ROLES" />
+          </Key>
+          <Property Name="ID_ROLES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROLE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="active_module" Relationship="CRM10Model.FK_active_module_ROLES" FromRole="ROLES" ToRole="active_module" />
+          <NavigationProperty Name="USERS" Relationship="CRM10Model.FK_USERS_ROLES" FromRole="ROLES" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="Serial_number">
+          <Key>
+            <PropertyRef Name="id_serial_number" />
+          </Key>
+          <Property Name="id_serial_number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serial_number1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name_serial_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_Serial_number" FromRole="Serial_number" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="id_service" />
+          </Key>
+          <Property Name="id_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="service" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscriber_service" Relationship="CRM10Model.FK_Subscriber_service_Services" FromRole="Services" ToRole="Subscriber_service" />
+        </EntityType>
+        <EntityType Name="Streets">
+          <Key>
+            <PropertyRef Name="id_street" />
+          </Key>
+          <Property Name="id_street" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="street" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="address_subscriber" Relationship="CRM10Model.FK_address_subscriber_Streets" FromRole="Streets" ToRole="address_subscriber" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="id_subscriber" />
+          </Key>
+          <Property Name="id_subscriber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number_subscriber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="patromic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_gender" Type="Int32" Nullable="false" />
+          <Property Name="date_birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="number_phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address_registration" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="number_subcriber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="passport_seria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="passport_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_division_code" Type="Int32" Nullable="false" />
+          <Property Name="id_issued" Type="Int32" Nullable="false" />
+          <Property Name="date_issued" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="number_contract" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_conclusion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_type_contract" Type="Int32" Nullable="false" />
+          <Property Name="id_reason_terminate" Type="Int32" />
+          <Property Name="personal_account" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_terminate" Type="DateTime" Precision="0" />
+          <Property Name="date_rent" Type="DateTime" Precision="0" />
+          <Property Name="id_serial_number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="address_subscriber" Relationship="CRM10Model.FK_Subscriber_address_subscriber" FromRole="Subscriber" ToRole="address_subscriber" />
+          <NavigationProperty Name="Division_code" Relationship="CRM10Model.FK_Subscriber_Division_code" FromRole="Subscriber" ToRole="Division_code" />
+          <NavigationProperty Name="FMS" Relationship="CRM10Model.FK_Subscriber_FMS" FromRole="Subscriber" ToRole="FMS" />
+          <NavigationProperty Name="Gender" Relationship="CRM10Model.FK_Subscriber_Gender" FromRole="Subscriber" ToRole="Gender" />
+          <NavigationProperty Name="Reason_terminate" Relationship="CRM10Model.FK_Subscriber_Reason_terminate" FromRole="Subscriber" ToRole="Reason_terminate" />
+          <NavigationProperty Name="Serial_number" Relationship="CRM10Model.FK_Subscriber_Serial_number" FromRole="Subscriber" ToRole="Serial_number" />
+          <NavigationProperty Name="Subscriber_service" Relationship="CRM10Model.FK_Subscriber_service_Subscriber" FromRole="Subscriber" ToRole="Subscriber_service" />
+          <NavigationProperty Name="Type_contract" Relationship="CRM10Model.FK_Subscriber_Type_contract" FromRole="Subscriber" ToRole="Type_contract" />
+        </EntityType>
+        <EntityType Name="Subscriber_service">
+          <Key>
+            <PropertyRef Name="id_subscriber_service" />
+          </Key>
+          <Property Name="id_subscriber_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_service" Type="Int32" Nullable="false" />
+          <Property Name="id_subcriber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Services" Relationship="CRM10Model.FK_Subscriber_service_Services" FromRole="Subscriber_service" ToRole="Services" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_service_Subscriber" FromRole="Subscriber_service" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="type_binding">
+          <Key>
+            <PropertyRef Name="id_type_binding" />
+          </Key>
+          <Property Name="id_type_binding" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_binding1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Raoins" Relationship="CRM10Model.FK_Raoins_type_binding" FromRole="type_binding" ToRole="Raoins" />
+        </EntityType>
+        <EntityType Name="Type_contract">
+          <Key>
+            <PropertyRef Name="id_contract" />
+          </Key>
+          <Property Name="id_contract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_contract1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscriber" Relationship="CRM10Model.FK_Subscriber_Type_contract" FromRole="Type_contract" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID_USER" />
+          </Key>
+          <Property Name="ID_USER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ROLE" Type="Int32" Nullable="false" />
+          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="Int32" />
+          <Property Name="ID_GENDER" Type="Int32" />
+          <Property Name="images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gender" Relationship="CRM10Model.FK_USERS_Gender" FromRole="USERS" ToRole="Gender" />
+          <NavigationProperty Name="ROLES" Relationship="CRM10Model.FK_USERS_ROLES" FromRole="USERS" ToRole="ROLES" />
+        </EntityType>
+        <Association Name="FK_active_module_Moduls">
+          <End Type="CRM10Model.Moduls" Role="Moduls" Multiplicity="1" />
+          <End Type="CRM10Model.active_module" Role="active_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moduls">
+              <PropertyRef Name="id_module" />
+            </Principal>
+            <Dependent Role="active_module">
+              <PropertyRef Name="id_module" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_active_module_ROLES">
+          <End Type="CRM10Model.ROLES" Role="ROLES" Multiplicity="1" />
+          <End Type="CRM10Model.active_module" Role="active_module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID_ROLES" />
+            </Principal>
+            <Dependent Role="active_module">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_address_subscriber_Cities">
+          <End Type="CRM10Model.Cities" Role="Cities" Multiplicity="0..1" />
+          <End Type="CRM10Model.address_subscriber" Role="address_subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="id_city" />
+            </Principal>
+            <Dependent Role="address_subscriber">
+              <PropertyRef Name="id_city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_address_subscriber_Raoins">
+          <End Type="CRM10Model.Raoins" Role="Raoins" Multiplicity="0..1" />
+          <End Type="CRM10Model.address_subscriber" Role="address_subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Raoins">
+              <PropertyRef Name="id_raion" />
+            </Principal>
+            <Dependent Role="address_subscriber">
+              <PropertyRef Name="id_raion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_address_subscriber_Streets">
+          <End Type="CRM10Model.Streets" Role="Streets" Multiplicity="0..1" />
+          <End Type="CRM10Model.address_subscriber" Role="address_subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Streets">
+              <PropertyRef Name="id_street" />
+            </Principal>
+            <Dependent Role="address_subscriber">
+              <PropertyRef Name="id_street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_address_subscriber">
+          <End Type="CRM10Model.address_subscriber" Role="address_subscriber" Multiplicity="0..1" />
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="address_subscriber">
+              <PropertyRef Name="number_subscriber" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="number_subcriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Division_code">
+          <End Type="CRM10Model.Division_code" Role="Division_code" Multiplicity="1" />
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division_code">
+              <PropertyRef Name="id_division_code" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_division_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_FMS">
+          <End Type="CRM10Model.FMS" Role="FMS" Multiplicity="1" />
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FMS">
+              <PropertyRef Name="id_issued" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_issued" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Gender">
+          <End Type="CRM10Model.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_GENDER" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_Gender">
+          <End Type="CRM10Model.Gender" Role="Gender" Multiplicity="0..1" />
+          <End Type="CRM10Model.USERS" Role="USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_GENDER" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="ID_GENDER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raoins_type_binding">
+          <End Type="CRM10Model.type_binding" Role="type_binding" Multiplicity="1" />
+          <End Type="CRM10Model.Raoins" Role="Raoins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_binding">
+              <PropertyRef Name="id_type_binding" />
+            </Principal>
+            <Dependent Role="Raoins">
+              <PropertyRef Name="id_type_binding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Reason_terminate">
+          <End Type="CRM10Model.Reason_terminate" Role="Reason_terminate" Multiplicity="0..1" />
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason_terminate">
+              <PropertyRef Name="id_reason_terminate" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_reason_terminate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_ROLES">
+          <End Type="CRM10Model.ROLES" Role="ROLES" Multiplicity="1" />
+          <End Type="CRM10Model.USERS" Role="USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ID_ROLES" />
+            </Principal>
+            <Dependent Role="USERS">
+              <PropertyRef Name="ID_ROLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Serial_number">
+          <End Type="CRM10Model.Serial_number" Role="Serial_number" Multiplicity="1" />
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serial_number">
+              <PropertyRef Name="id_serial_number" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_serial_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_service_Services">
+          <End Type="CRM10Model.Services" Role="Services" Multiplicity="1" />
+          <End Type="CRM10Model.Subscriber_service" Role="Subscriber_service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="Subscriber_service">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_service_Subscriber">
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="1" />
+          <End Type="CRM10Model.Subscriber_service" Role="Subscriber_service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="id_subscriber" />
+            </Principal>
+            <Dependent Role="Subscriber_service">
+              <PropertyRef Name="id_subcriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Type_contract">
+          <End Type="CRM10Model.Type_contract" Role="Type_contract" Multiplicity="1" />
+          <End Type="CRM10Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_contract">
+              <PropertyRef Name="id_contract" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="id_type_contract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CRM10ModelContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="active_module">
+            <EntityTypeMapping TypeName="CRM10Model.active_module">
+              <MappingFragment StoreEntitySet="active_module">
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="id_module" ColumnName="id_module" />
+                <ScalarProperty Name="id_active_module" ColumnName="id_active_module" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="address_subscriber">
+            <EntityTypeMapping TypeName="CRM10Model.address_subscriber">
+              <MappingFragment StoreEntitySet="address_subscriber">
+                <ScalarProperty Name="house" ColumnName="house" />
+                <ScalarProperty Name="id_street" ColumnName="id_street" />
+                <ScalarProperty Name="id_city" ColumnName="id_city" />
+                <ScalarProperty Name="id_raion" ColumnName="id_raion" />
+                <ScalarProperty Name="prefix_code" ColumnName="prefix_code" />
+                <ScalarProperty Name="number_subscriber" ColumnName="number_subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="CRM10Model.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="name_city" ColumnName="name_city" />
+                <ScalarProperty Name="id_city" ColumnName="id_city" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Division_code">
+            <EntityTypeMapping TypeName="CRM10Model.Division_code">
+              <MappingFragment StoreEntitySet="Division_code">
+                <ScalarProperty Name="division_code1" ColumnName="division_code" />
+                <ScalarProperty Name="id_division_code" ColumnName="id_division_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FMS">
+            <EntityTypeMapping TypeName="CRM10Model.FMS">
+              <MappingFragment StoreEntitySet="FMS">
+                <ScalarProperty Name="FMS1" ColumnName="FMS" />
+                <ScalarProperty Name="id_issued" ColumnName="id_issued" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="CRM10Model.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GENDER1" ColumnName="GENDER" />
+                <ScalarProperty Name="ID_GENDER" ColumnName="ID_GENDER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moduls">
+            <EntityTypeMapping TypeName="CRM10Model.Moduls">
+              <MappingFragment StoreEntitySet="Moduls">
+                <ScalarProperty Name="name_module" ColumnName="name_module" />
+                <ScalarProperty Name="id_module" ColumnName="id_module" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Raoins">
+            <EntityTypeMapping TypeName="CRM10Model.Raoins">
+              <MappingFragment StoreEntitySet="Raoins">
+                <ScalarProperty Name="id_type_binding" ColumnName="id_type_binding" />
+                <ScalarProperty Name="count_metro" ColumnName="count_metro" />
+                <ScalarProperty Name="population" ColumnName="population" />
+                <ScalarProperty Name="square" ColumnName="square" />
+                <ScalarProperty Name="raion_name" ColumnName="raion_name" />
+                <ScalarProperty Name="id_raion" ColumnName="id_raion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reason_terminate">
+            <EntityTypeMapping TypeName="CRM10Model.Reason_terminate">
+              <MappingFragment StoreEntitySet="Reason_terminate">
+                <ScalarProperty Name="reason_terminate1" ColumnName="reason_terminate" />
+                <ScalarProperty Name="id_reason_terminate" ColumnName="id_reason_terminate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLES">
+            <EntityTypeMapping TypeName="CRM10Model.ROLES">
+              <MappingFragment StoreEntitySet="ROLES">
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="ID_ROLES" ColumnName="ID_ROLES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Serial_number">
+            <EntityTypeMapping TypeName="CRM10Model.Serial_number">
+              <MappingFragment StoreEntitySet="Serial_number">
+                <ScalarProperty Name="name_serial_number" ColumnName="name_serial_number" />
+                <ScalarProperty Name="serial_number1" ColumnName="serial_number" />
+                <ScalarProperty Name="id_serial_number" ColumnName="id_serial_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="CRM10Model.Services">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="service" ColumnName="service" />
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Streets">
+            <EntityTypeMapping TypeName="CRM10Model.Streets">
+              <MappingFragment StoreEntitySet="Streets">
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="id_street" ColumnName="id_street" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriber">
+            <EntityTypeMapping TypeName="CRM10Model.Subscriber">
+              <MappingFragment StoreEntitySet="Subscriber">
+                <ScalarProperty Name="id_serial_number" ColumnName="id_serial_number" />
+                <ScalarProperty Name="date_rent" ColumnName="date_rent" />
+                <ScalarProperty Name="date_terminate" ColumnName="date_terminate" />
+                <ScalarProperty Name="personal_account" ColumnName="personal_account" />
+                <ScalarProperty Name="id_reason_terminate" ColumnName="id_reason_terminate" />
+                <ScalarProperty Name="id_type_contract" ColumnName="id_type_contract" />
+                <ScalarProperty Name="date_conclusion" ColumnName="date_conclusion" />
+                <ScalarProperty Name="number_contract" ColumnName="number_contract" />
+                <ScalarProperty Name="date_issued" ColumnName="date_issued" />
+                <ScalarProperty Name="id_issued" ColumnName="id_issued" />
+                <ScalarProperty Name="id_division_code" ColumnName="id_division_code" />
+                <ScalarProperty Name="passport_number" ColumnName="passport_number" />
+                <ScalarProperty Name="passport_seria" ColumnName="passport_seria" />
+                <ScalarProperty Name="number_subcriber" ColumnName="number_subcriber" />
+                <ScalarProperty Name="address_registration" ColumnName="address_registration" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="number_phone" ColumnName="number_phone" />
+                <ScalarProperty Name="date_birthday" ColumnName="date_birthday" />
+                <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+                <ScalarProperty Name="patromic" ColumnName="patromic" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="number_subscriber" ColumnName="number_subscriber" />
+                <ScalarProperty Name="id_subscriber" ColumnName="id_subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriber_service">
+            <EntityTypeMapping TypeName="CRM10Model.Subscriber_service">
+              <MappingFragment StoreEntitySet="Subscriber_service">
+                <ScalarProperty Name="id_subcriber" ColumnName="id_subcriber" />
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="id_subscriber_service" ColumnName="id_subscriber_service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CRM10Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_binding">
+            <EntityTypeMapping TypeName="CRM10Model.type_binding">
+              <MappingFragment StoreEntitySet="type_binding">
+                <ScalarProperty Name="type_binding1" ColumnName="type_binding" />
+                <ScalarProperty Name="id_type_binding" ColumnName="id_type_binding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_contract">
+            <EntityTypeMapping TypeName="CRM10Model.Type_contract">
+              <MappingFragment StoreEntitySet="Type_contract">
+                <ScalarProperty Name="type_contract1" ColumnName="type_contract" />
+                <ScalarProperty Name="id_contract" ColumnName="id_contract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="CRM10Model.USERS">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="ID_GENDER" ColumnName="ID_GENDER" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="ID_ROLE" ColumnName="ID_ROLE" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
