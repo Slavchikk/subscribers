@@ -54,7 +54,7 @@ namespace subscribers
             lbBilg.Visibility = Visibility.Collapsed;
             lbSup.Visibility = Visibility.Collapsed;
             lbCRM.Visibility = Visibility.Collapsed;
-            foreach (active_module module in activs) // Показ доступных модулей
+            foreach (active_module module in activs) 
             {
                 switch (module.Moduls.name_module)
                 {
@@ -90,8 +90,11 @@ namespace subscribers
         {
             gridMain.Width = 200;
             spOpen.Visibility = Visibility.Visible;
-            Canvas.SetZIndex(spOpen, 1);
+            
             spClose.Visibility = Visibility.Collapsed;
+            Grid.SetZIndex(spOpen, 1);
+            Grid.SetZIndex(spClose, 2);
+           
         }
 
         private void Grid_MouseLeave(object sender, MouseEventArgs e)
@@ -99,6 +102,8 @@ namespace subscribers
             gridMain.Width = 100;
             spOpen.Visibility = Visibility.Collapsed;
             spClose.Visibility = Visibility.Visible;
+            Grid.SetZIndex(spOpen, 1);
+            Grid.SetZIndex(spClose, 2);
         }
 
       

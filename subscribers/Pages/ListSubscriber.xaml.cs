@@ -27,14 +27,15 @@ namespace subscribers.Pages
             dgSubscriers.ItemsSource = Base.EM.Subscriber.ToList();
             cbActive.IsChecked = true;
             List<Raoins> raions = Base.EM.Raoins.ToList(); 
-            cbFilterRaion.Items.Add("Все районы");
+            cbRaion.Items.Add("Все районы");
             foreach (Raoins raion in raions)
             {
-                cbFilterRaion.Items.Add(raion.raion_name);
+                cbRaion.Items.Add(raion.raion_name);
             }
-            cbFilterRaion.SelectedIndex = 0;
-            cbFilterStreet.IsEnabled = false;
-            cbFiltNomerHouse.IsEnabled = false;
+            cbRaion.SelectedIndex = 0;
+           
+            cbStreet.IsEnabled = false;
+            cbHomes.IsEnabled = false;
         }
 
         private void Sort()
@@ -56,27 +57,27 @@ namespace subscribers.Pages
             {
                 subscribers = new List<Subscriber>();
             }
-            if (tbSearchSurname.Text.Replace(" ", "").Length > 0) 
+            if (tbLastname.Text.Replace(" ", "").Length > 0) 
             {
-                subscribers = subscribers.Where(x => x.lastname.ToLower().Contains(tbSearchSurname.Text.ToLower())).ToList();
+                subscribers = subscribers.Where(x => x.lastname.ToLower().Contains(tbLastname.Text.ToLower())).ToList();
             }
-            if (cbFilterRaion.SelectedIndex > 0) 
+            if (cbRaion.SelectedIndex > 0) 
             {
-                Raoins raion = Base.EM.Raoins.FirstOrDefault(x => x.raion_name == cbFilterRaion.SelectedValue); 
+                Raoins raion = Base.EM.Raoins.FirstOrDefault(x => x.raion_name == cbRaion.SelectedValue); 
                 subscribers = subscribers.Where(x => x.address_subscriber.id_raion == raion.id_raion).ToList();
             }
-            if (cbFilterStreet.SelectedIndex > 0) 
+            if (cbStreet.SelectedIndex > 0) 
             {
-                Streets street = Base.EM.Streets.FirstOrDefault(x => x.street == cbFilterStreet.SelectedValue);
+                Streets street = Base.EM.Streets.FirstOrDefault(x => x.street == cbStreet.SelectedValue);
                 subscribers = subscribers.Where(x => x.address_subscriber.id_street == street.id_street).ToList();
             }
-            if (cbFiltNomerHouse.SelectedIndex > 0) 
+            if (cbHomes.SelectedIndex > 0) 
             {
-                subscribers = subscribers.Where(x => Convert.ToString(x.address_subscriber.house) == (string)cbFiltNomerHouse.SelectedValue).ToList();
+                subscribers = subscribers.Where(x => Convert.ToString(x.address_subscriber.house) == (string)cbHomes.SelectedValue).ToList();
             }
-            if (tbSearchPersonalAccount.Text.Replace(" ", "").Length > 0) 
+            if (tbParsAc.Text.Replace(" ", "").Length > 0) 
             {
-                subscribers = subscribers.Where(x => x.personal_account.ToString().ToLower().Contains(tbSearchPersonalAccount.Text.Replace(" ", "").ToLower())).ToList();
+                subscribers = subscribers.Where(x => x.personal_account.ToString().ToLower().Contains(tbParsAc.Text.Replace(" ", "").ToLower())).ToList();
             }
             dgSubscriers.ItemsSource = subscribers;
             if (subscribers.Count == 0)
@@ -84,25 +85,25 @@ namespace subscribers.Pages
                 MessageBox.Show("Данные отсутсвуют");
             }
         }
-        private void tbSearchSurname_SelectionChanged(object sender, RoutedEventArgs e)
+        private void tbLastname_SelectionChanged(object sender, RoutedEventArgs e)
         {
             b = true;
             Sort();
            
         }
 
-        private void cbFilterRaion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbRaion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Sort();
-            if (cbFilterRaion.SelectedIndex > 0)
+            if (cbRaion.SelectedIndex > 0)
             {
                 b = false;
-                cbFilterStreet.Items.Clear();
-                cbFilterStreet.IsEnabled = true;
-                List<address_subscriber> residentialAddresses = Base.EM.address_subscriber.Where(x => x.id_raion == cbFilterRaion.SelectedIndex).ToList();
+                cbStreet.Items.Clear();
+                cbStreet.IsEnabled = true;
+                List<address_subscriber> residentialAddresses = Base.EM.address_subscriber.Where(x => x.id_raion == cbRaion.SelectedIndex).ToList();
                 List<string> streets = new List<string>();
-                cbFilterStreet.Items.Add("Все улицы");
-                foreach (address_subscriber res in residentialAddresses) // Создание списка улиц согласно району
+                cbStreet.Items.Add("Все улицы");
+                foreach (address_subscriber res in residentialAddresses)
                 {
                     if (res.id_street != null)
                     {
@@ -112,31 +113,31 @@ namespace subscribers.Pages
                 streets = streets.Distinct().ToList();
                 foreach (string street in streets)
                 {
-                    cbFilterStreet.Items.Add(street);
+                    cbStreet.Items.Add(street);
                 }
-                cbFilterStreet.SelectedIndex = 0;
+                cbStreet.SelectedIndex = 0;
             }
             else
             {
                 b = true;
-                cbFilterStreet.IsEnabled = false;
-                cbFilterStreet.Items.Clear();
+                cbStreet.IsEnabled = false;
+                cbStreet.Items.Clear();
             }
           
         }
 
-        private void cbFilterStreet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbStreet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             b = false;
             Sort();
-            if (cbFilterStreet.SelectedIndex > 0)
+            if (cbStreet.SelectedIndex > 0)
             {
-                cbFiltNomerHouse.Items.Clear();
-                cbFiltNomerHouse.IsEnabled = true;
-                List<address_subscriber> residentialAddresses = Base.EM.address_subscriber.Where(x => x.id_raion == cbFilterRaion.SelectedIndex && x.id_street == cbFilterStreet.SelectedIndex).ToList();
+                cbHomes.Items.Clear();
+                cbHomes.IsEnabled = true;
+                List<address_subscriber> residentialAddresses = Base.EM.address_subscriber.Where(x => x.id_raion == cbRaion.SelectedIndex && x.id_street == cbStreet.SelectedIndex).ToList();
                 List<string> houses = new List<string>();
-                cbFiltNomerHouse.Items.Add("Все дома");
-                foreach (address_subscriber res in residentialAddresses) // Создание списка улиц согласно району
+                cbHomes.Items.Add("Все дома");
+                foreach (address_subscriber res in residentialAddresses) 
                 {
                     if (res.house != null)
                     {
@@ -146,38 +147,37 @@ namespace subscribers.Pages
                 houses = houses.Distinct().ToList();
                 foreach (string house in houses)
                 {
-                    cbFiltNomerHouse.Items.Add(house);
+                    cbHomes.Items.Add(house);
                 }
-                cbFiltNomerHouse.SelectedIndex = 0;
+                cbHomes.SelectedIndex = 0;
             }
             else
             {
-                cbFiltNomerHouse.IsEnabled = false;
-                cbFiltNomerHouse.Items.Clear();
+                cbHomes.IsEnabled = false;
+                cbHomes.Items.Clear();
             }
         }
 
-        private void cbFiltNomerHouse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbHomes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             b = false;
             Sort();
 
         }
 
-        private void tbSearchPersonalAccount_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            
-                if (!(Char.IsDigit(e.Text, 0)))
-                {
-                    e.Handled = true;
-                }
-            
-        }
-
+          
         private void cbActive_Click(object sender, RoutedEventArgs e)
         {
             b = true;
             Sort();
+        }
+
+        private void tbParsAc_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!(Char.IsDigit(e.Text, 0)))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

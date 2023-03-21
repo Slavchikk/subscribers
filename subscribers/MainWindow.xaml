@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:subscribers"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Icon="/resources/image.ico"
         Title="MainWindow" Height="800" Width="1250" MinHeight="850" MinWidth="1300">
     <Grid>
-        <Grid Grid.Column="0"  MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" x:Name="gridMain" Background="White"  Width="120" HorizontalAlignment="Left" >
+        <Grid Grid.Column="0"  MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" x:Name="gridMain" Background="White"  Width="80" HorizontalAlignment="Left" Panel.ZIndex="100">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="5"/>
@@ -41,65 +41,70 @@
                 <Label Name="lbCRM" Content="CRM" Background="LightGray" Margin="5" Padding="5" Height="60" Width="160" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Cursor="Hand"/>
             </StackPanel>
             <StackPanel VerticalAlignment="Bottom">
-                <Button Content="проф." FontSize="18" Margin="5" Template="{StaticResource CTButon}" HorizontalAlignment="Center" Width="60" Height="60"/>
-                <Button Content="?" Margin="5" FontWeight="Bold" Template="{StaticResource CTButon}" HorizontalAlignment="Center" Width="60" Height="60"/>
+                <Button Content="проф." FontSize="18" Margin="5" Template="{StaticResource CTButon}"  Style="{StaticResource  btnBold}"  HorizontalAlignment="Center" Width="60" Height="60"/>
+                <Button Content="?" Margin="5" FontWeight="Bold" Template="{StaticResource CTButon}" Style="{StaticResource  btnBold}" HorizontalAlignment="Center" Width="60" Height="60"/>
             </StackPanel>
             <Rectangle VerticalAlignment="Stretch" Fill="Black" Width="1" Grid.Column="1" HorizontalAlignment="Left" Margin="0"/>
 
 
         </Grid>
-        <Grid Margin="150, 0, 0, 0">
+        <Grid Margin="100, 0, 0, 0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="200"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="600"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Name="tbHead" VerticalAlignment="Center" FontSize="36" Margin="20"/>
+                <TextBlock Name="tbHead"   Style="{StaticResource  TBMainText}" VerticalAlignment="Center" Margin="20"/>
+
                 <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ComboBox Name="cbFIO" Width="420" VerticalAlignment="Center" SelectionChanged="cbFIO_SelectionChanged"/>
-                    <Rectangle RadiusX="60" RadiusY="60" Height="60" Width="60" Margin="10">
+                    <ComboBox Name="cbFIO" FontSize="20" Width="450" VerticalAlignment="Center" SelectionChanged="cbFIO_SelectionChanged"/>
+                    <Rectangle RadiusX="90" RadiusY="90" Height="90" Width="90" Margin="10">
                         <Rectangle.Fill>
                             <ImageBrush x:Name="imgUser" Stretch="UniformToFill"/>
                         </Rectangle.Fill>
                     </Rectangle>
                 </StackPanel>
-                <StackPanel Grid.Column="1" Background="#FFEAEAEA" Width="240" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                    <Label Content="События" HorizontalContentAlignment="Center"/>
+                <StackPanel Grid.Column="1" Background="#B5DEFA" Width="240" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <Label Content="События"  Style="{StaticResource  tbLabelText}"  HorizontalContentAlignment="Center" FontSize="30"/>
                 </StackPanel>
-                <StackPanel Grid.Column="0" Background="#FFEAEAEA" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                <StackPanel Grid.Column="0"  VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
                     <Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="1" Grid.Column="1" Margin="0"/>
                 </StackPanel>
-                <StackPanel Grid.Column="1" Background="#FFEAEAEA" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" >
+                <StackPanel Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" >
                     <Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="1" Grid.Column="1" Margin="0"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="128*"/>
-                    <RowDefinition Height="271*"/>
-                    <RowDefinition Height="235*"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition Width="168"/>
                 </Grid.ColumnDefinitions>
                 <Frame x:Name="fMain" Grid.Column="0" NavigationUIVisibility="Hidden" Grid.RowSpan="3">
 
                 </Frame>
-                <Grid Grid.Column="1" Background="#FFEAEAEA" Grid.RowSpan="3">
+                <Grid Grid.Column="1" Background="#B5DEFA" Grid.RowSpan="3" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44*"/>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="43*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
                         <RowDefinition/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
-                    <!--<StackPanel x:Name="btnUp" Grid.Row="0" MouseUp="btnUp_MouseDown" Background="#FFEAEAEA">--><!--
-                        <Polyline Stroke="Black" Points="0, 15, 15, 5, 30, 15" HorizontalAlignment="Center"/>
-                    </StackPanel>-->
-                    <ListView x:Name="lvEvents" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#FFEAEAEA">
+
+                    <ListView x:Name="lvEv" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#B5DEFA" Grid.ColumnSpan="3">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -107,13 +112,13 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Background="LightGray" Width="220">
-                                 
+                                <Grid Background="#E0E0E0" Width="220">
+
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    
+
                 </Grid>
             </Grid>
         </Grid>
